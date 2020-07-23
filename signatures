@@ -17,3 +17,7 @@ KeyValue: label=DNS, norm_id=Ubiquiti
 Pattern: <month:word> <day:int> <time:all> <unifi_device_type:word>,<:all>,<unifi_ver:all>: <process:word>: [<pid:all>] [<event_type:all>] <action:all>; [STA: <station:all>][QUERY: <dns_query:all>.] [DNS_SERVER :<dns_server:ip>] [TXN_ID <:all>] [SRCPORT <src_port:int>]
 Example: <4>Jul 23 07:51:58 U7IW,788a20563b57,v4.3.20.11298: kernel: [818163.688994] [STA_TRACKER] DNS request timed out; [STA: fc:ec:da:33:96:6b][QUERY: msmetrics.ws.sonos.com.] [DNS_SERVER :192.168.1.191] [TXN_ID acf9] [SRCPORT 33724]
 KeyValue: label=DNS, norm_id=Ubiquiti
+
+Pattern: <month:word> <day:int> <time:all> <unifi_device_type:word>,<:all>,<unifi_ver:all>: : <process:word>[<pid:all>]: [<event_type:all>].<sub_process:all>: {"query_server_5":"<dns_server:ip>","message_type":"<event_type2:all>","assoc_status":"<assoc_status:all>","mac":"<src_mac:all>","query_5":"<dns_query:all>","vap":<vap:all>","event_type":<action:all>"}
+Example: <14>Jul 23 07:51:58 U7IW,788a20563b57,v4.3.20.11298: : stahtd[2847]: [STA-TRACKER].stahtd_dump_event(): {"query_server_5":"192.168.1.191","message_type":"STA_ASSOC_TRACKER","assoc_status":"0","mac":"fc:ec:da:33:96:6b","query_5":"msmetrics.ws.sonos.com.","vap":"vwire7","event_type":"dns timeout"}
+KeyValue: label=Wifi, norm_id=Ubiquiti
