@@ -1,0 +1,19 @@
+Pattern: <process:'kernel'><:all>[<interface:all>-<action:all>]IN=<source_interface:all>OUT=<destination_interface:all>MAC=<hardware_address:all>SRC=<source_address:ip>DST=<destination_address:ip>LEN=<length:all>TOS=<service_type:all>PREC<prec:all>TTL<duration:all>ID=<id:int><:all>PROTO=<protocol:all>SPT=<source_port:port>DPT=<destination_port:port>LEN=<length2:all>
+Example: <4>Jul 16 11:52:39 USG kernel: [WAN_LOCAL-default-D]IN=eth0 OUT= MAC=fc:ec:da:02:fe:b1:00:01:5c:a7:2a:46:08:00 SRC=89.188.79.98 DST=76.27.189.31 LEN=1136 TOS=0x00 PREC=0x20 TTL=51 ID=11873 PROTO=UDP SPT=1193 DPT=36327 LEN=1116
+KeyValue: label=Connection, norm_id=Ubiquiti
+
+Pattern: <process:'kernel'><:all>[<interface:all>-<action:all>]IN=<source_interface:all>OUT=<destination_interface:all>MAC=<hardware_address:all>SRC=<source_address:ip>DST=<destination_address:ip>LEN=<length:all>TOS=<service_type:all>PREC<prec:all>TTL<duration:all>ID=<id:int><:all>PROTO=<protocol:all>SPT=<source_port:port>DPT=<destination_port:port>WINDOW=<window:all>RES=<result_code:string><tcp_flags:all> URGP=<urgp:int>
+Example: <4>Jul 23 08:00:03 USG kernel: [WAN_LOCAL-default-D]IN=eth0 OUT= MAC=fc:ec:da:02:fe:b1:00:01:5c:a7:2a:46:08:00 SRC=44.231.248.28 DST=76.27.189.31 LEN=98 TOS=0x00 PREC=0x20 TTL=220 ID=46042 DF PROTO=TCP SPT=443 DPT=50464 WINDOW=114 RES=0x00 ACK PSH URGP=0
+KeyValue: label=Connection, norm_id=Ubiquiti
+
+Pattern: <month:word> <day:int> <time:all> <unifi_device_type:word>,<unifi_ver:all>:<:all> <process:word>[<pid:int>]: <event_type:all>: bssid=<bssid:all> radio=<radio:all> vap=<vap:all> sta=<station:all> 
+Example: <14>Jul 23 07:51:58 U7PG2,788a20867d70,v4.3.20.11298: : mcad[2841]: wireless_agg_stats.log_sta_anomalies(): bssid=7a:8a:20:87:7d:70 radio=wifi0 vap=ath1 sta=f0:76:6f:35:f4:22 satisfaction_now=77 anomalies=wifi_retries
+KeyValue: label=Wifi, norm_id=Ubiquiti
+
+Pattern: 
+Example: 
+KeyValue: label=DNS, norm_id=Ubiquiti
+
+Pattern: <month:word> <day:int> <time:all> <unifi_device_type:word>,<:all>,<unifi_ver:all>: <process:word>: [<pid:all>] [<event_type:all>] <action:all>; [STA: <station:all>][QUERY: <dns_query:all>.] [DNS_SERVER :<dns_server:ip>] [TXN_ID <:all>] [SRCPORT <src_port:int>]
+Example: <4>Jul 23 07:51:58 U7IW,788a20563b57,v4.3.20.11298: kernel: [818163.688994] [STA_TRACKER] DNS request timed out; [STA: fc:ec:da:33:96:6b][QUERY: msmetrics.ws.sonos.com.] [DNS_SERVER :192.168.1.191] [TXN_ID acf9] [SRCPORT 33724]
+KeyValue: label=DNS, norm_id=Ubiquiti
